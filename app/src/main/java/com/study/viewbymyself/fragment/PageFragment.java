@@ -13,17 +13,15 @@ import com.study.viewbymyself.R;
 
 public class PageFragment extends Fragment {
 
-    @LayoutRes int sampleLayoutRes;
     @LayoutRes int practiceLayoutRes;
 
     public PageFragment() {
 //        Required empty public constructor
     }
 
-    public static PageFragment newInstance(@LayoutRes int sampleLayoutRes, @LayoutRes int practiceLayoutRes) {
+    public static PageFragment newInstance(@LayoutRes int practiceLayoutRes) {
         PageFragment fragment = new PageFragment();
         Bundle args = new Bundle();
-        args.putInt("sampleLayoutRes", sampleLayoutRes);
         args.putInt("practiceLayoutRes", practiceLayoutRes);
         fragment.setArguments(args);
         return fragment;
@@ -33,7 +31,6 @@ public class PageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            sampleLayoutRes = getArguments().getInt("sampleLayoutRes");
             practiceLayoutRes = getArguments().getInt("practiceLayoutRes");
         }
     }
@@ -42,10 +39,6 @@ public class PageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
-
-        ViewStub sampleStub = view.findViewById(R.id.sampleStub);
-        sampleStub.setLayoutResource(sampleLayoutRes);
-        sampleStub.inflate();
 
         ViewStub practiceStub = view.findViewById(R.id.practiceStub);
         practiceStub.setLayoutResource(practiceLayoutRes);

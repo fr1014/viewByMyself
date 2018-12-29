@@ -36,17 +36,19 @@ public class MainActivity extends AppCompatActivity {
     private List<String> getTitleList() {
         titleList.add("drawCircle()");
         titleList.add("drawColor()");
+        titleList.add("drawHeart()");
         return titleList;
     }
 
     private List<Fragment> getFragmentList() {
-        pageModelList.add(new PageModel(R.layout.sample_circle, R.layout.pratice_circle));
-        pageModelList.add(new PageModel(R.layout.sample_color, R.layout.pratice_color));
+        pageModelList.add(new PageModel(R.layout.pratice_circle));
+        pageModelList.add(new PageModel(R.layout.pratice_color));
+        pageModelList.add(new PageModel(R.layout.pratice_heart));
 
         List<Fragment> fragmentList = new ArrayList<>();
 
         for (int i = 0; i < pageModelList.size(); i++) {
-            pageFragment = PageFragment.newInstance(pageModelList.get(i).sampleLayoutRes, pageModelList.get(i).practiceLayoutRes);
+            pageFragment = PageFragment.newInstance(pageModelList.get(i).practiceLayoutRes);
             fragmentList.add(pageFragment);
         }
         return fragmentList;
@@ -54,13 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
     class PageModel {
         @LayoutRes
-        int sampleLayoutRes;
-        @LayoutRes
         int practiceLayoutRes;
 
-        PageModel(@LayoutRes int sampleLayoutRes, @LayoutRes int practiceLayoutRes) {
-            this.sampleLayoutRes = sampleLayoutRes;
+        PageModel(@LayoutRes int practiceLayoutRes) {
             this.practiceLayoutRes = practiceLayoutRes;
         }
     }
+
 }
