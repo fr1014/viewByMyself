@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">viewByMyself</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="draw_color">drawColor()</string>
+    <string name="draw_circle">drawCircle()</string>
+</resources>
